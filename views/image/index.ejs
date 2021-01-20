@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Adicionar image</h1>
+    </header>
+    <main>
+        <form method="POST" action="/image/save">
+            <label for="url">URL: </label>
+            <input type="text" name="url" placeholder="https://">
+
+            <select name="category">
+                <% category.forEach(category => { %>
+                    <option value="<%= category.id %>"> <%= category.title %> </option>      
+                <% }) %>
+            </select><br><br>
+
+            <button>Adicionar</button>
+        </form>
+    </main>
+</body>
+</html>

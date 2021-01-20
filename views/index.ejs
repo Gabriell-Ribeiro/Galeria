@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Galeria</h1>
+    </header>
+    <main>
+        <div class="category">
+            <label for="categories">Categorias:</label>
+            <select name="categoria" onchange="getCategoryId(event)">
+                <option value="">Todos</option>
+                <% category.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="images-group">
+            <% image.forEach((image) => { %> 
+                
+                <img src="<%= image.url %>" alt="">
+            <% }) %>
+        </div>
+    </main>
+
+    <script>
+        var selectElement = document.getElementsByName('categoria')
+
+        function getCategoryId(event) {
+            console.log(event.target.value)
+        }
+    </script>
+</body>
+</html>
